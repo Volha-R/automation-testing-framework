@@ -12,7 +12,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class TemporaryEmailPage {
     private WebDriver driver;
     private String emailAddress;
-    private final Logger logger = LogManager.getRootLogger();
 
     public TemporaryEmailPage(WebDriver driver) {
         this.driver = driver;
@@ -34,7 +33,6 @@ public class TemporaryEmailPage {
 
     public TemporaryEmailPage openPage() {
         driver.get("https://10minutemail.com");
-        logger.info("Email was created ");
         return this;
     }
     public TemporaryEmailPage copyEmail() {
@@ -45,7 +43,6 @@ public class TemporaryEmailPage {
     public TemporaryEmailPage openEmail() {
         new WebDriverWait(driver, 60).until(ExpectedConditions.elementToBeClickable(emailReceivedField))
                 .click();
-        logger.info("Email was received");
         return this;
     }
 

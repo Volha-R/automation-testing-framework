@@ -110,16 +110,9 @@ public ComputeEngineComponent setNumberOfInstances(Instance computeEngineInstanc
 
 
     public ComputeEngineComponent setMachineClass(Instance computeEngineInstance) {
-//        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(
-//                By.xpath("//div[@id='select_container_1260']//div[contains(text(), '" + machineClass + "')]")
-//        )).click();
-
         new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(
                 By.xpath(String.format(machineClassParameter, computeEngineInstance.getMachineClass()))
         )).click();
-
-//        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(machineClassIsRegular))
-//                .click();
         return this;
     }
 
