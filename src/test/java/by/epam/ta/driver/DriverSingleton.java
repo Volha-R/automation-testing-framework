@@ -24,11 +24,11 @@ public class DriverSingleton {
                 default: {
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions chromeOptions = new ChromeOptions();
-                    chromeOptions.addArguments("--disable-gpu");
-                    chromeOptions.addArguments("--disable-extensions");
-                    chromeOptions.setExperimentalOption("useAutomationExtension", false);
-                    chromeOptions.addArguments("--proxy-server='direct://'");
-                    chromeOptions.addArguments("--proxy-bypass-list=*");
+//                    chromeOptions.addArguments("--disable-gpu");
+//                    chromeOptions.addArguments("--disable-extensions");
+//                    chromeOptions.setExperimentalOption("useAutomationExtension", false);
+//                    chromeOptions.addArguments("--proxy-server='direct://'");
+//                    chromeOptions.addArguments("--proxy-bypass-list=*");
                     chromeOptions.addArguments("--start-maximized");
                     chromeOptions.addArguments("--headless");
                     driver = new ChromeDriver(chromeOptions);
