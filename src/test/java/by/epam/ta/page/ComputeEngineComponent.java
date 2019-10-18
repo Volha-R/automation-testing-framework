@@ -13,8 +13,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ComputeEngineComponent extends AbstractPage{
-    private final Logger logger = LogManager.getRootLogger();
-
     public ComputeEngineComponent(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -119,7 +117,6 @@ public ComputeEngineComponent setNumberOfInstances(Instance computeEngineInstanc
         new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(
                 By.xpath(String.format(machineClassParameter, computeEngineInstance.getMachineClass()))
         )).click();
-        logger.info("MachineClass was set as Regular");
 
 //        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(machineClassIsRegular))
 //                .click();
@@ -127,8 +124,6 @@ public ComputeEngineComponent setNumberOfInstances(Instance computeEngineInstanc
     }
 
     public ComputeEngineComponent expandMachineTypeDropdown() {
-        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(machineTypeOption)).click();
-        logger.info("MachineType menu dropdown was expanded");
         return this;
     }
 
