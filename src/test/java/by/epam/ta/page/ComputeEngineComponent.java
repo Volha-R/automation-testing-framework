@@ -124,6 +124,7 @@ public ComputeEngineComponent setNumberOfInstances(Instance computeEngineInstanc
     }
 
     public ComputeEngineComponent expandMachineTypeDropdown() {
+        machineTypeOption.click();
         return this;
     }
 
