@@ -20,18 +20,19 @@ public class DriverSingleton {
                 case "firefox": {
                     WebDriverManager.firefoxdriver().setup();
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
+                    firefoxOptions.setHeadless(true);
                     firefoxOptions.addArguments("--start-maximized");
-                    firefoxOptions.addArguments("--headless");
-                    firefoxOptions.addArguments("--window-size=1920,1080");
+                    firefoxOptions.addArguments("--width=2560");
+                    firefoxOptions.addArguments("--height=1440");
                     driver = new FirefoxDriver(firefoxOptions);
                     break;
                 }
                 default: {
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions.setHeadless(true);
                     chromeOptions.addArguments("--start-maximized");
-                    chromeOptions.addArguments("--headless");
-                    chromeOptions.addArguments("--window-size=1920,1080");
+                    chromeOptions.addArguments("--window-size=2560,1440");
                     driver = new ChromeDriver(chromeOptions);
                 }
             }
