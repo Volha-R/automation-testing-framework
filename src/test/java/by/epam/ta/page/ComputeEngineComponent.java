@@ -127,7 +127,7 @@ public ComputeEngineComponent setNumberOfInstances(Instance computeEngineInstanc
     }
 
     public ComputeEngineComponent expandMachineTypeDropdown() {
-        machineTypeOption.click();
+        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(machineTypeOption)).click();
         logger.info("MachineType menu dropdown was expanded");
         return this;
     }
