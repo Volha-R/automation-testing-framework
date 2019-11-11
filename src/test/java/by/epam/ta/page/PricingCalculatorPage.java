@@ -14,11 +14,11 @@ public class PricingCalculatorPage extends AbstractPage{
 
     public PricingCalculatorPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
     }
 
     public ComputeEngineComponent chooseComputeEngineOption() {
-        new WebDriverWait(driver, 5).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("idIframe"));
+        new WebDriverWait(driver, 5).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("myFrame"));
         computeEngineOptionButton.click();
         return new ComputeEngineComponent(driver);
     }

@@ -1,6 +1,6 @@
 package by.epam.ta.service;
 
-import by.epam.ta.model.Instance;
+import by.epam.ta.model.ComputeEngineInstance;
 
 public class InstanceCreator {
     public static final String NUMBER_OF_INSTANCES = "number.of.instances";
@@ -13,8 +13,8 @@ public class InstanceCreator {
     public static final String DATACENTER_LOCAATION = "datacenter.location";
     public static final String COMMITTED_USAGE = "committed.usage";
 
-    public static Instance withCredentialsFromProperty() {
-        return new Instance(TestDataReader.getTestData(NUMBER_OF_INSTANCES),
+    public static ComputeEngineInstance withCredentialsFromProperty() {
+        return new ComputeEngineInstance(TestDataReader.getTestData(NUMBER_OF_INSTANCES),
                 TestDataReader.getTestData(OPERATING_SYSTEM_OR_SOFTWARE),
                 TestDataReader.getTestData(MACHINE_CLASS),
                 TestDataReader.getTestData(MACHINE_TYPE),

@@ -16,7 +16,7 @@ public class SearchResultsPage extends AbstractPage {
 
     public SearchResultsPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
     }
 
     public PricingCalculatorPage chooseSearchTermLink() {

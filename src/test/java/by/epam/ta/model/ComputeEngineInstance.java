@@ -1,6 +1,6 @@
 package by.epam.ta.model;
 
-public class Instance {
+public class ComputeEngineInstance {
     private String numberOfInstances;
     private String operatingSystemOrSoftware;
     private String machineClass;
@@ -11,7 +11,7 @@ public class Instance {
     private String datacenterLocation;
     private String committedUsage;
 
-    public Instance(String numberOfInstances, String operatingSystemOrSoftware, String machineClass, String machineType, String numberOfGPUs, String typeOfGPU, String localSSD, String datacenterLocation, String committedUsage) {
+    public ComputeEngineInstance(String numberOfInstances, String operatingSystemOrSoftware, String machineClass, String machineType, String numberOfGPUs, String typeOfGPU, String localSSD, String datacenterLocation, String committedUsage) {
         this.numberOfInstances = numberOfInstances;
         this.operatingSystemOrSoftware = operatingSystemOrSoftware;
         this.machineClass = machineClass;

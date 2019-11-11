@@ -1,6 +1,6 @@
 package by.epam.ta.test;
 
-import by.epam.ta.model.Instance;
+import by.epam.ta.model.ComputeEngineInstance;
 import by.epam.ta.page.EstimationResultComponent;
 import by.epam.ta.page.MainPage;
 import by.epam.ta.service.InstanceCreator;
@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.*;
 public class InstancesPricingCalculatorAccessTest extends CommonConditions{
     @Test(description = "Check if input data matches expected after estimation in correspondent fields")
     public void shouldCheckInputDataMatchesExpectedDataAfterEstimation() {
-        Instance computeEngineInstance = InstanceCreator.withCredentialsFromProperty();
+        ComputeEngineInstance computeEngineInstance = InstanceCreator.withCredentialsFromProperty();
         String searchTerm = SearchTermsUtils.getSearchTerm();
         EstimationResultComponent productsAndServicesPage = new MainPage(driver)
                 .openMainPage()

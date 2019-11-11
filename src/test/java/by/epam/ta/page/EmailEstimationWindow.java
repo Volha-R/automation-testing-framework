@@ -26,6 +26,7 @@ public class EmailEstimationWindow extends EstimationResultComponent {
         emailField.sendKeys(emailAddress);
         return this;
     }
+//    idIframe
 
     public void sendEmail() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", sendEmailButton);

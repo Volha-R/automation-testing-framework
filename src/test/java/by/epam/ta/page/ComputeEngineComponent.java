@@ -1,8 +1,6 @@
 package by.epam.ta.page;
 
-import by.epam.ta.model.Instance;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import by.epam.ta.model.ComputeEngineInstance;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ComputeEngineComponent extends AbstractPage{
     public ComputeEngineComponent(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
     }
 
     @FindBy(xpath = "//*[@id='input_53']")
@@ -87,7 +85,7 @@ public class ComputeEngineComponent extends AbstractPage{
 //        numberOfInstancesPlaceholder.sendKeys(numberOfInstances);
 //        return this;
 //    }
-public ComputeEngineComponent setNumberOfInstances(Instance computeEngineInstance) {
+public ComputeEngineComponent setNumberOfInstances(ComputeEngineInstance computeEngineInstance) {
     numberOfInstancesPlaceholder.click();
     numberOfInstancesPlaceholder.sendKeys(computeEngineInstance.getNumberOfInstances());
     return this;
@@ -97,8 +95,8 @@ public ComputeEngineComponent setNumberOfInstances(Instance computeEngineInstanc
         return this;
     }
 
-    public ComputeEngineComponent setOperatingSystem(Instance computeEngineInstance) {
-        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(operatingSystemSoftwareParameter, computeEngineInstance.getOperatingSystemOrSoftware()))))
+    public ComputeEngineComponent setOperatingSystem(ComputeEngineInstance computeEngineInstance) {
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(operatingSystemSoftwareParameter, computeEngineInstance.getOperatingSystemOrSoftware()))))
                 .click();
         return this;
     }
@@ -109,8 +107,8 @@ public ComputeEngineComponent setNumberOfInstances(Instance computeEngineInstanc
     }
 
 
-    public ComputeEngineComponent setMachineClass(Instance computeEngineInstance) {
-        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(
+    public ComputeEngineComponent setMachineClass(ComputeEngineInstance computeEngineInstance) {
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(
                 By.xpath(String.format(machineClassParameter, computeEngineInstance.getMachineClass()))
         )).click();
         return this;
@@ -121,8 +119,8 @@ public ComputeEngineComponent setNumberOfInstances(Instance computeEngineInstanc
         return this;
     }
 
-    public ComputeEngineComponent setMachineType(Instance computeEngineInstance) {
-        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(machineTypeParameter, computeEngineInstance.getMachineType()))))
+    public ComputeEngineComponent setMachineType(ComputeEngineInstance computeEngineInstance) {
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(machineTypeParameter, computeEngineInstance.getMachineType()))))
                 .click();
         return this;
     }
@@ -137,8 +135,8 @@ public ComputeEngineComponent setNumberOfInstances(Instance computeEngineInstanc
         return this;
     }
 
-    public ComputeEngineComponent setGPUsNumber(Instance computeEngineInstance) {
-        new WebDriverWait(driver, 3).until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(numberOfGPUsParameter, computeEngineInstance.getNumberOfGPUs()))))
+    public ComputeEngineComponent setGPUsNumber(ComputeEngineInstance computeEngineInstance) {
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(numberOfGPUsParameter, computeEngineInstance.getNumberOfGPUs()))))
                 .click();
         return this;
     }
@@ -148,8 +146,8 @@ public ComputeEngineComponent setNumberOfInstances(Instance computeEngineInstanc
         return this;
     }
 
-    public ComputeEngineComponent setGPUType(Instance computeEngineInstance) {
-        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(gpuTypeParameter, computeEngineInstance.getTypeOfGPU()))))
+    public ComputeEngineComponent setGPUType(ComputeEngineInstance computeEngineInstance) {
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(gpuTypeParameter, computeEngineInstance.getTypeOfGPU()))))
                 .click();
         return this;
     }
@@ -159,8 +157,8 @@ public ComputeEngineComponent setNumberOfInstances(Instance computeEngineInstanc
         return this;
     }
 
-    public ComputeEngineComponent setLocalSSD(Instance computeEngineInstance) {
-        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(localSSDParameter, computeEngineInstance.getLocalSSD()))))
+    public ComputeEngineComponent setLocalSSD(ComputeEngineInstance computeEngineInstance) {
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(localSSDParameter, computeEngineInstance.getLocalSSD()))))
                 .sendKeys(Keys.ENTER);
         return this;
     }
@@ -170,20 +168,20 @@ public ComputeEngineComponent setNumberOfInstances(Instance computeEngineInstanc
         return this;
     }
 
-    public ComputeEngineComponent setDatacenterLocation(Instance computeEngineInstance) {
-        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(datacenterLocationParameter, computeEngineInstance.getDatacenterLocation()))))
+    public ComputeEngineComponent setDatacenterLocation(ComputeEngineInstance computeEngineInstance) {
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(datacenterLocationParameter, computeEngineInstance.getDatacenterLocation()))))
                 .click();
         return this;
     }
 
     public ComputeEngineComponent expandCommittedUsageDropdown() {
-        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(committedUsageOption))
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(committedUsageOption))
                 .click();
         return this;
     }
 
-    public ComputeEngineComponent setCommittedUsage(Instance computeEngineInstance) {
-        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(committedUsageParameter, computeEngineInstance.getCommittedUsage()))))
+    public ComputeEngineComponent setCommittedUsage(ComputeEngineInstance computeEngineInstance) {
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(committedUsageParameter, computeEngineInstance.getCommittedUsage()))))
                 .click();
 
         return this;

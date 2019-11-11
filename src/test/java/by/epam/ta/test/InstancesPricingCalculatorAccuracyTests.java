@@ -1,6 +1,6 @@
 package by.epam.ta.test;
 
-import by.epam.ta.model.Instance;
+import by.epam.ta.model.ComputeEngineInstance;
 import by.epam.ta.page.EmailEstimationWindow;
 import by.epam.ta.page.EstimationResultComponent;
 import by.epam.ta.page.MainPage;
@@ -19,7 +19,7 @@ import static org.hamcrest.Matchers.containsString;
 public class InstancesPricingCalculatorAccuracyTests extends CommonConditions {
     @Test(description = "Check if final cost matches expected cost after estimation with particular input data")
     public void shouldCheckIfEstimationPriceIsCorrect() {
-        Instance computeEngineInstance = InstanceCreator.withCredentialsFromProperty();
+        ComputeEngineInstance computeEngineInstance = InstanceCreator.withCredentialsFromProperty();
         String searchTerm = SearchTermsUtils.getSearchTerm();
         EstimationResultComponent productsAndServicesPage = new MainPage(driver)
                 .openMainPage()
@@ -51,7 +51,7 @@ public class InstancesPricingCalculatorAccuracyTests extends CommonConditions {
 
     @Test(description = "Check if cost in email matches cost shown after estimation as Total Estimated Coast")
     public void shouldCheckIfCoastInEmailCorrect() {
-        Instance computeEngineInstance = InstanceCreator.withCredentialsFromProperty();
+        ComputeEngineInstance computeEngineInstance = InstanceCreator.withCredentialsFromProperty();
         String searchTerm = SearchTermsUtils.getSearchTerm();
         EmailEstimationWindow emailEstimationWindow = new MainPage(driver)
                 .openMainPage()

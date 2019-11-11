@@ -19,7 +19,7 @@ public class MainPage extends AbstractPage{
 
     public MainPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
     }
 
     public MainPage openMainPage() {
