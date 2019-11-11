@@ -21,12 +21,11 @@ public class EmailEstimationWindow extends EstimationResultComponent {
 
     public EmailEstimationWindow pasteEmailAddress(String emailAddress) {
         new WebDriverWait(driver, 5).until(ExpectedConditions.or(
-                ExpectedConditions.frameToBeAvailableAndSwitchToIt("idIframe"),
+                ExpectedConditions.frameToBeAvailableAndSwitchToIt("myFrame"),
                 ExpectedConditions.elementToBeClickable(emailField)));
         emailField.sendKeys(emailAddress);
         return this;
     }
-//    idIframe
 
     public void sendEmail() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", sendEmailButton);

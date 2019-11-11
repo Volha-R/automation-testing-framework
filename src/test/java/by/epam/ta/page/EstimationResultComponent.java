@@ -15,7 +15,7 @@ public class EstimationResultComponent extends PricingCalculatorPage {
     @FindBy(xpath = "//md-content[@id='compute']//div[contains(text(), 'VM class')]")
     private WebElement vMClassField;
 
-    @FindBy(xpath = "//md-content[@id='compute']//div[contains(text(), 'ComputeEngineInstance type')]")
+    @FindBy(xpath = "//md-content[@id='compute']//div[contains(text(), 'Instance type')]")
     private WebElement instancetypeField;
 
     @FindBy(xpath = "//md-content[@id='compute']//div[contains(text(), 'Region')]")
