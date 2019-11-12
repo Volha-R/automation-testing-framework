@@ -20,7 +20,7 @@ public class EmailEstimationWindow extends EstimationResultComponent {
     private WebElement sendEmailButton;
 
     public EmailEstimationWindow pasteEmailAddress(String emailAddress) {
-        new WebDriverWait(driver, 5).until(ExpectedConditions.or(
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.or(
                 ExpectedConditions.frameToBeAvailableAndSwitchToIt("myFrame"),
                 ExpectedConditions.elementToBeClickable(emailField)));
         emailField.sendKeys(emailAddress);

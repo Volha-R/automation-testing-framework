@@ -9,13 +9,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class TemporaryEmailPage {
-    private WebDriver driver;
+import static by.epam.ta.page.AbstractPage.WAIT_TIMEOUT_SECONDS;
+
+public class TemporaryEmailPage extends AbstractPage{
     private String emailAddress;
 
-    public TemporaryEmailPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+    public TemporaryEmailPage(WebDriver driver ) {
+        super(driver);
     }
 
     @FindBy(xpath = "//input[@id='mailAddress']")
@@ -47,7 +47,7 @@ public class TemporaryEmailPage {
     }
 
     public String getEstimatedCoast() {
-        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(costField));
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(costField));
 
         return costField.getText();
     }
