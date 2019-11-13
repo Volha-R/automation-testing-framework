@@ -95,6 +95,7 @@ public class InstancesPricingCalculatorAccuracyTests extends CommonConditions {
         driver.switchTo().window(windowHandles.get(1));
 
         temporaryEmailPage.openEmail();
-        assertThat(temporaryEmailPage.getEstimatedCoast(), containsString("Estimated Monthly Cost: USD 1,082.77"));
+        //assertThat(temporaryEmailPage.getEstimatedCoast(), containsString("Estimated Monthly Cost: USD 1,082.77"));
+        assertThat(temporaryEmailPage.getEstimatedCoast(), containsString("Estimated Monthly Cost: USD " + computeEngineInstance.getPrice()));
     }
 }

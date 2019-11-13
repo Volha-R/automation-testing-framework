@@ -37,7 +37,7 @@ public class ComputeEngineComponent extends AbstractPage{
     private WebElement machineTypeOption;
 
 //    private String machineTypeParameter = "//*[@id='select_container_77']//md-option[@value='%s']";
-    private String machineTypeParameter = "//*[@id='select_container_77']//*[contains(text(), '%s')]]";
+    private String machineTypeParameter = "//*[@id='select_container_77']//*[contains(text(), '%s')]";
 
 
     @FindBy(xpath = "//md-checkbox[@aria-label='Add GPUs']")
@@ -69,7 +69,7 @@ public class ComputeEngineComponent extends AbstractPage{
     private WebElement committedUsageOption;
 
 //    private String committedUsageParameter = "//*[@id='select_container_86']//*[@value='%s']";
-    private String committedUsageParameter = "//*[@id='select_container_86']//*[contains(text(), '%s']";
+    private String committedUsageParameter = "//*[@id='select_container_86']//*[contains(text(), '%s')]";
 
     @FindBy(xpath = "//form[@name='ComputeEngineForm']/div/button")
     private WebElement addToEstimateButton;
@@ -148,7 +148,7 @@ public ComputeEngineComponent setNumberOfInstances(String numberOfInstances) {
 
     public ComputeEngineComponent setLocalSSD(String localSSD) {
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(localSSDParameter, localSSD))))
-                .sendKeys(Keys.ENTER);
+                .click();
         return this;
     }
 
