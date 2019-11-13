@@ -19,24 +19,26 @@ public class DriverSingleton {
                 case "firefox": {
                     WebDriverManager.firefoxdriver().setup();
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
-//                    firefoxOptions.setHeadless(true);
-//                    firefoxOptions.addArguments("--start-maximized");
-//                    firefoxOptions.addArguments("--width=2560");
-//                    firefoxOptions.addArguments("--height=1440");
+                    firefoxOptions.setHeadless(true);
+                    firefoxOptions.addArguments("--start-maximized");
+                    firefoxOptions.addArguments("--width=2560");
+                    firefoxOptions.addArguments("--height=1440");
                     driver = new FirefoxDriver(firefoxOptions);
+//                    driver = new FirefoxDriver();
                     break;
                 }
                 default: {
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions chromeOptions = new ChromeOptions();
-//                    chromeOptions.setHeadless(true);
-//                    chromeOptions.addArguments("--start-maximized");
-//                    chromeOptions.addArguments("--window-size=2560,1440");
+                    chromeOptions.setHeadless(true);
+                    chromeOptions.addArguments("--start-maximized");
+                    chromeOptions.addArguments("--window-size=2560,1440");
                     driver = new ChromeDriver(chromeOptions);
+//                    driver = new ChromeDriver();
                 }
             }
         }
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
         return driver;
     }
 

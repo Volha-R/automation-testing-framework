@@ -4,12 +4,9 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class MainPage extends AbstractPage{
-
-//    @FindBy(xpath = "//a[contains(text(), 'See all products')]")
-//    private WebElement seeAllProductsButton;
+    private final String BASE_URL = "https://cloud.google.com";
 
     @FindBy(xpath = "//*[@id='searchbox']")
     private WebElement searchFieldButton;
@@ -19,18 +16,12 @@ public class MainPage extends AbstractPage{
 
     public MainPage(WebDriver driver) {
         super(driver);
-//        PageFactory.initElements(driver, this);
     }
 
     public MainPage openMainPage() {
-        driver.get("https://cloud.google.com");
+        driver.get(BASE_URL);
         return this;
     }
-
-//    public ProductsAndServicesPage openProductsAndServicesPage() {
-//        seeAllProductsButton.click();
-//        return new ProductsAndServicesPage(driver);
-//    }
 
     public SearchResultsPage searchForTerms(String searchTerm) {
         searchFieldButton.click();

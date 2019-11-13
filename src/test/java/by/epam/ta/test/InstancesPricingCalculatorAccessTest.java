@@ -21,26 +21,27 @@ public class InstancesPricingCalculatorAccessTest extends CommonConditions{
                 .searchForTerms(searchTerm)
                 .chooseSearchTermLink()
                 .chooseComputeEngineOption()
-                .setNumberOfInstances(computeEngineInstance)
+                .setNumberOfInstances(computeEngineInstance.getNumberOfInstances())
                 .expandOperatingSystemDropdown()
-                .setOperatingSystem(computeEngineInstance)
+                .setOperatingSystem(computeEngineInstance.getOperatingSystem())
                 .expandMachineClassDropdown()
-                .setMachineClass(computeEngineInstance)
+                .setMachineClass(computeEngineInstance.getMachineClass())
                 .expandMachineTypeDropdown()
-                .setMachineType(computeEngineInstance)
+                .setMachineType(computeEngineInstance.getMachineType())
                 .toggleGPUsCheckbox()
                 .expandGPUsNumberDropdown()
-                .setGPUsNumber(computeEngineInstance)
+                .setNumberOfGPUs(computeEngineInstance.getNumberOfGPUs())
                 .expandGPUTypeDropdown()
-                .setGPUType(computeEngineInstance)
+                .setGPUType(computeEngineInstance.getGPUType())
                 .expandLocalSSDDropdown()
-                .setLocalSSD(computeEngineInstance)
+                .setLocalSSD(computeEngineInstance.getLocalSSD())
                 .expandDatacenterLocationDropdown()
-                .setDatacenterLocation(computeEngineInstance)
+                .setDatacenterLocation(computeEngineInstance.getDatacenterLocation())
                 .expandCommittedUsageDropdown()
-                .setCommittedUsage(computeEngineInstance)
+                .setCommittedUsage(computeEngineInstance.getCommittedUsage())
                 .clickAddToEstimateButton();
 
+//        assertThat(productsAndServicesPage.getVMClass(), containsString("regular"));
         assertThat(productsAndServicesPage.getVMClass(), containsString("regular"));
         assertThat(productsAndServicesPage.getInstanceType(), containsString("n1-standard-8"));
         assertThat(productsAndServicesPage.getRegion(), containsString("Frankfurt"));
