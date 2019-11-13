@@ -42,10 +42,11 @@ public class InstancesPricingCalculatorAccessTest extends CommonConditions{
                 .clickAddToEstimateButton();
 
 //        assertThat(productsAndServicesPage.getVMClass(), containsString("regular"));
-        assertThat(productsAndServicesPage.getVMClass(), containsString("regular"));
-        assertThat(productsAndServicesPage.getInstanceType(), containsString("n1-standard-8"));
-        assertThat(productsAndServicesPage.getRegion(), containsString("Frankfurt"));
-        assertThat(productsAndServicesPage.getLocalSSD(), containsString("2x375 GB"));
-        assertThat(productsAndServicesPage.getCommitmentTerm(), containsString("1 Year"));
+//        assertThat(productsAndServicesPage.getVMClass(), containsStringIgnoringCase("regular"));
+        assertThat(productsAndServicesPage.getVMClass(), containsStringIgnoringCase("regular"));
+        assertThat(productsAndServicesPage.getInstanceType(), containsStringIgnoringCase("n1-standard-8"));
+        assertThat(productsAndServicesPage.getRegion(), containsStringIgnoringCase("Frankfurt"));
+        assertThat(productsAndServicesPage.getLocalSSD(), containsStringIgnoringCase("2x375 GB"));
+        assertThat(productsAndServicesPage.getCommitmentTerm(), containsStringIgnoringCase("1 Year"));
     }
 }

@@ -20,13 +20,14 @@ public class ComputeEngineComponent extends AbstractPage{
     @FindBy(xpath = "//*[@id='select_value_label_46']")
     private WebElement operatingSystemSoftwareOption;
 
-    private String operatingSystemSoftwareParameter = "//*[@id='select_container_66']//md-option[@value='%s']";
+//    private String operatingSystemSoftwareParameter = "//*[@id='select_container_66']//md-option[@value='%s']";
+    private String operatingSystemSoftwareParameter = "//*[@id='select_container_66']//*[contains(text(), '%s')]";
 
     @FindBy(xpath = "//*[@id='select_value_label_47']")
     private WebElement machineClassOption;
 
-    private String machineClassParameter = "//*[@id='select_container_70']//md-option[@value='%s']";
-//    private String machineClassParameter = "//*[@id='select_container_70']//div[contains(text(), '%s')]";
+//    private String machineClassParameter = "//*[@id='select_container_70']//md-option[@value='%s']";
+    private String machineClassParameter = "//*[@id='select_container_70']//*[contains(text(), '%s')]";
 
 //    в пропертях regular с маленькой буквы, поэтому xpath не находит, на сайте Regular. ведь теперь подставляем не
 //    значение для value, а непосредственно текст - нужно изменить данные в проперти файле
@@ -35,7 +36,9 @@ public class ComputeEngineComponent extends AbstractPage{
     @FindBy(xpath = "//*[@id='select_value_label_49']")
     private WebElement machineTypeOption;
 
-    private String machineTypeParameter = "//*[@id='select_container_77']//md-option[@value='%s']";
+//    private String machineTypeParameter = "//*[@id='select_container_77']//md-option[@value='%s']";
+    private String machineTypeParameter = "//*[@id='select_container_77']//*[contains(text(), '%s')]]";
+
 
     @FindBy(xpath = "//md-checkbox[@aria-label='Add GPUs']")
     private WebElement gPUsCheckbox;
@@ -53,17 +56,20 @@ public class ComputeEngineComponent extends AbstractPage{
     @FindBy(xpath = "//*[@id='select_value_label_50']")
     private WebElement localSSDOption;
 
-    private String localSSDParameter = "//*[@id='select_container_79']//*[@value='%s']";
+//
+    private String localSSDParameter = "//*[@id='select_container_79']//*[contains(text(), '%s')]";
 
     @FindBy(xpath = "//*[@id='select_value_label_51']")
     private WebElement datacenterLocationOption;
 
-    private String datacenterLocationParameter = "//*[@id='select_container_81']//*[@value='%s']";
+    //
+    private String datacenterLocationParameter = "//*[@id='select_container_81']//*[contains(text(), '%s')]";
 
     @FindBy(xpath = "//*[@id='select_85']")
     private WebElement committedUsageOption;
 
-    private String committedUsageParameter = "//*[@id='select_container_86']//*[@value='%s']";
+//    private String committedUsageParameter = "//*[@id='select_container_86']//*[@value='%s']";
+    private String committedUsageParameter = "//*[@id='select_container_86']//*[contains(text(), '%s']";
 
     @FindBy(xpath = "//form[@name='ComputeEngineForm']/div/button")
     private WebElement addToEstimateButton;
