@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TemporaryEmailPage extends AbstractPage{
     private String emailAddress;
+    private  String EMAIL_PAGE_URL = "https://10minutemail.com";
 
     public TemporaryEmailPage(WebDriver driver ) {
         super(driver);
@@ -27,7 +28,7 @@ public class TemporaryEmailPage extends AbstractPage{
     }
 
     public TemporaryEmailPage openPage() {
-        driver.get("https://10minutemail.com");
+        driver.get(EMAIL_PAGE_URL);
         return this;
     }
     public TemporaryEmailPage copyEmail() {
