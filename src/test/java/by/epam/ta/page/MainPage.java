@@ -5,8 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class MainPage extends AbstractPage{
-    private final String BASE_URL = "https://cloud.google.com";
+public class MainPage extends AbstractPage {
+    private static final String BASE_URL = "https://cloud.google.com";
 
     @FindBy(xpath = "//*[@id='searchbox']")
     private WebElement searchFieldButton;

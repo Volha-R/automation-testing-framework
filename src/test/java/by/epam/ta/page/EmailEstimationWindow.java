@@ -16,7 +16,7 @@ public class EmailEstimationWindow extends EstimationResultComponent {
     @FindBy(xpath = ("//label[contains(text(), 'Email')]/following-sibling::input"))
     private WebElement emailField;
 
-   @FindBy(xpath = ("//*[@aria-label='Send Email']"))
+    @FindBy(xpath = ("//*[@aria-label='Send Email']"))
     private WebElement sendEmailButton;
 
     public EmailEstimationWindow pasteEmailAddress(String emailAddress) {

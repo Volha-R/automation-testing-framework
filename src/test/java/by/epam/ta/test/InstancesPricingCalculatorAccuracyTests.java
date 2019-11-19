@@ -20,7 +20,7 @@ public class InstancesPricingCalculatorAccuracyTests extends CommonConditions {
     @Test(description = "Check if final cost matches expected cost after estimation with particular input data")
     public void shouldCheckIfEstimationPriceIsCorrect() {
         ComputeEngineInstance computeEngineInstance = InstanceCreator.withCredentialsFromProperty();
-        String searchTerm = SearchTermsUtils.getSearchTerm();
+        String searchTerm = SearchTermsUtils.getPricingCalculatorSearchTerm();
         EstimationResultComponent productsAndServicesPage = new MainPage(driver)
                 .openMainPage()
                 .searchForTerms(searchTerm)
@@ -52,7 +52,7 @@ public class InstancesPricingCalculatorAccuracyTests extends CommonConditions {
     @Test(description = "Check if cost in email matches cost shown after estimation as Total Estimated Coast")
     public void shouldCheckIfCoastInEmailCorrect() {
         ComputeEngineInstance computeEngineInstance = InstanceCreator.withCredentialsFromProperty();
-        String searchTerm = SearchTermsUtils.getSearchTerm();
+        String searchTerm = SearchTermsUtils.getPricingCalculatorSearchTerm();
         EmailEstimationWindow emailEstimationWindow = new MainPage(driver)
                 .openMainPage()
                 .searchForTerms(searchTerm)
@@ -79,23 +79,23 @@ public class InstancesPricingCalculatorAccuracyTests extends CommonConditions {
                 .clickAddToEstimateButton()
                 .chooseEmailEstimation();
 
-        ((JavascriptExecutor)driver).executeScript("window.open();");
+        ((JavascriptExecutor) driver).executeScript("window.open();");
 
         List<String> windowHandles = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(windowHandles.get(1));
 
         TemporaryEmailPage temporaryEmailPage = new TemporaryEmailPage(driver)
-                .openPage()
-                .copyEmail();
+                .openPage();
+        String emailAddress = temporaryEmailPage.copyEmail();
 
         driver.switchTo().window(windowHandles.get(0));
 
-        emailEstimationWindow.pasteEmailAddress(temporaryEmailPage.getEmailAddress()).sendEmail();
+        emailEstimationWindow.pasteEmailAddress(emailAddress).sendEmail();
 
         driver.switchTo().window(windowHandles.get(1));
 
         temporaryEmailPage.openEmail();
-        //assertThat(temporaryEmailPage.getEstimatedCoast(), containsString("Estimated Monthly Cost: USD 1,082.77"));
+
         assertThat(temporaryEmailPage.getEstimatedCoast(), containsString("Estimated Monthly Cost: USD " + computeEngineInstance.getPrice()));
     }
 }

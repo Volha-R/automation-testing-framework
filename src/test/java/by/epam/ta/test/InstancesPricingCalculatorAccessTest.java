@@ -8,14 +8,13 @@ import by.epam.ta.util.SearchTermsUtils;
 import org.testng.annotations.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-//import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.containsStringIgnoringCase;
 
-public class InstancesPricingCalculatorAccessTest extends CommonConditions{
+public class InstancesPricingCalculatorAccessTest extends CommonConditions {
     @Test(description = "Check if input data matches expected after estimation in correspondent fields")
     public void shouldCheckInputDataMatchesExpectedDataAfterEstimation() {
         ComputeEngineInstance computeEngineInstance = InstanceCreator.withCredentialsFromProperty();
-        String searchTerm = SearchTermsUtils.getSearchTerm();
+        String searchTerm = SearchTermsUtils.getPricingCalculatorSearchTerm();
         EstimationResultComponent productsAndServicesPage = new MainPage(driver)
                 .openMainPage()
                 .searchForTerms(searchTerm)

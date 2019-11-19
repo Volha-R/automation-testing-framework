@@ -11,11 +11,12 @@ public class DriverSingleton {
 
     private static WebDriver driver;
 
-    private DriverSingleton(){}
+    private DriverSingleton() {
+    }
 
-    public static WebDriver getDriver(){
-        if (null == driver){
-            switch (System.getProperty("browser")){
+    public static WebDriver getDriver() {
+        if (null == driver) {
+            switch (System.getProperty("browser")) {
                 case "firefox": {
                     WebDriverManager.firefoxdriver().setup();
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
@@ -24,7 +25,6 @@ public class DriverSingleton {
                     firefoxOptions.addArguments("--width=2560");
                     firefoxOptions.addArguments("--height=1440");
                     driver = new FirefoxDriver(firefoxOptions);
-//                    driver = new FirefoxDriver();
                     break;
                 }
                 default: {
@@ -34,15 +34,13 @@ public class DriverSingleton {
                     chromeOptions.addArguments("--start-maximized");
                     chromeOptions.addArguments("--window-size=2560,1440");
                     driver = new ChromeDriver(chromeOptions);
-//                    driver = new ChromeDriver();
                 }
             }
         }
-//        driver.manage().window().maximize();
         return driver;
     }
 
-    public static void closeDriver(){
+    public static void closeDriver() {
         driver.quit();
         driver = null;
     }

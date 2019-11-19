@@ -12,7 +12,7 @@ public class CommonConditions {
     protected WebDriver driver;
 
     @BeforeMethod(alwaysRun = true)
-    public void setUpBrowser(){
+    public void setUpBrowser() {
         driver = DriverSingleton.getDriver();
     }
 

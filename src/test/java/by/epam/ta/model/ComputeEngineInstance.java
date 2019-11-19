@@ -12,7 +12,9 @@ public class ComputeEngineInstance {
     private String committedUsage;
     private String price;
 
-    public ComputeEngineInstance(String numberOfInstances, String operatingSystemOrSoftware, String machineClass, String machineType, String numberOfGPUs, String GPUType, String localSSD, String datacenterLocation, String committedUsage, String price) {
+    public ComputeEngineInstance(String numberOfInstances, String operatingSystemOrSoftware, String machineClass,
+                                 String machineType, String numberOfGPUs, String GPUType, String localSSD,
+                                 String datacenterLocation, String committedUsage, String price) {
         this.numberOfInstances = numberOfInstances;
         this.operatingSystemOrSoftware = operatingSystemOrSoftware;
         this.machineClass = machineClass;
@@ -22,7 +24,7 @@ public class ComputeEngineInstance {
         this.localSSD = localSSD;
         this.datacenterLocation = datacenterLocation;
         this.committedUsage = committedUsage;
-        this.price= price;
+        this.price = price;
     }
 
     public String getNumberOfInstances() {
