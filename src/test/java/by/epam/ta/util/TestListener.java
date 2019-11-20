@@ -30,7 +30,7 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
-        saveScreenshot();
+        saveScreenshot(iTestResult.getMethod().getMethodName());
     }
 
     @Override
@@ -53,12 +53,12 @@ public class TestListener implements ITestListener {
 
     }
 
-    private void saveScreenshot() {
+    private void saveScreenshot(String testName) {
         File screenCapture = ((TakesScreenshot) DriverSingleton
                 .getDriver())
                 .getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(screenCapture, new File(".//target/screenshots/" + getCurrentTimeAsString() + ".png"));
+            FileUtils.copyFile(screenCapture, new File(".//target/screenshots/" + testName + "-" + getCurrentTimeAsString() + ".png"));
         } catch (IOException e) {
             logger.info("Failed to save screenshot: " + e.getLocalizedMessage());
         }

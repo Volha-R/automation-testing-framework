@@ -50,7 +50,7 @@ public class InstancesPricingCalculatorAccuracyTests extends CommonConditions {
     }
 
     @Test(description = "Check if cost in email matches cost shown after estimation as Total Estimated Coast")
-    public void shouldCheckIfCoastInEmailCorrect() {
+    public void shouldCheckIfCostInEmailIsCorrect() {
         ComputeEngineInstance computeEngineInstance = InstanceCreator.withCredentialsFromProperty();
         String searchTerm = SearchTermsUtils.getPricingCalculatorSearchTerm();
         EmailEstimationWindow emailEstimationWindow = new MainPage(driver)
