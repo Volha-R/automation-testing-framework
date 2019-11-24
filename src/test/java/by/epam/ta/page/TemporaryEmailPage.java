@@ -7,17 +7,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TemporaryEmailPage extends AbstractPage {
-//    private String emailAddress;
     private static final String EMAIL_PAGE_URL = "https://10minutemail.com";
 
     public TemporaryEmailPage(WebDriver driver) {
         super(driver);
     }
 
-    @FindBy(xpath = "//input[@id='mailAddress']")
+    @FindBy(id = "mailAddress")
     private WebElement emailAddressField;
 
-    @FindBy(xpath = "//div[@id='messagesList']")
+    @FindBy(id = "messagesList")
     private WebElement emailReceivedField;
 
     @FindBy(xpath = "//h2[contains(text(), 'Estimated Monthly Cost')]")

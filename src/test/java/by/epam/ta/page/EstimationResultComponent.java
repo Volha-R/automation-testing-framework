@@ -30,7 +30,7 @@ public class EstimationResultComponent extends PricingCalculatorPage {
     @FindBy(xpath = "//md-content[@id='compute']//*[contains(text(), 'Estimated Component Cost:')]")
     private WebElement estimatedComponentCostField;
 
-    @FindBy(xpath = "//button[@id='email_quote']")
+    @FindBy(id = "email_quote")
     private WebElement emailEstimateButton;
 
     public String getVMClass() {

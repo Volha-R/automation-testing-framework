@@ -22,34 +22,34 @@ public class ComputeEngineComponent extends AbstractPage {
     private static final String datacenterLocationParameter = "//*[@id='select_container_81']//*[contains(text(), '%s')]";
     private static final String committedUsageParameter = "//*[@id='select_container_86']//*[contains(text(), '%s')]";
 
-    @FindBy(xpath = "//*[@id='input_53']")
+    @FindBy(id = "input_53")
     private WebElement numberOfInstancesPlaceholder;
 
-    @FindBy(xpath = "//*[@id='select_value_label_46']")
+    @FindBy(id = "select_value_label_46")
     private WebElement operatingSystemSoftwareOption;
 
-    @FindBy(xpath = "//*[@id='select_value_label_47']")
+    @FindBy(id = "select_value_label_47")
     private WebElement machineClassOption;
 
-    @FindBy(xpath = "//*[@id='select_value_label_49']")
+    @FindBy(id = "select_value_label_49")
     private WebElement machineTypeOption;
 
     @FindBy(xpath = "//md-checkbox[@aria-label='Add GPUs']")
     private WebElement gPUsCheckbox;
 
-    @FindBy(xpath = "//*[@id='select_value_label_346']")
+    @FindBy(id = "select_value_label_346")
     private WebElement numberOfGPUsOption;
 
-    @FindBy(xpath = "//*[@id='select_value_label_347']")
+    @FindBy(id = "select_value_label_347")
     private WebElement gpuTypeOption;
 
-    @FindBy(xpath = "//*[@id='select_value_label_50']")
+    @FindBy(id = "select_value_label_50")
     private WebElement localSSDOption;
 
-    @FindBy(xpath = "//*[@id='select_value_label_51']")
+    @FindBy(id = "select_value_label_51")
     private WebElement datacenterLocationOption;
 
-    @FindBy(xpath = "//*[@id='select_85']")
+    @FindBy(id = "select_85")
     private WebElement committedUsageOption;
 
     @FindBy(xpath = "//form[@name='ComputeEngineForm']/div/button")
