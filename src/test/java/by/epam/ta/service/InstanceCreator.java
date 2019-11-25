@@ -14,7 +14,7 @@ public class InstanceCreator {
     public static final String COMMITTED_USAGE = "committed.usage";
     public static final String PRICE = "price";
 
-    public static ComputeEngineInstance withCredentialsFromProperty() {
+    public static ComputeEngineInstance withDataFromProperty() {
         return new ComputeEngineInstance(TestDataReader.getTestData(NUMBER_OF_INSTANCES),
                 TestDataReader.getTestData(OPERATING_SYSTEM_OR_SOFTWARE),
                 TestDataReader.getTestData(MACHINE_CLASS),

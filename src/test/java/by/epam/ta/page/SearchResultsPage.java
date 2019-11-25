@@ -10,7 +10,7 @@ import java.util.List;
 
 public class SearchResultsPage extends AbstractPage {
 
-    private final By locator = By.xpath("//a[.//b[text()='Google Cloud Platform Pricing Calculator']]");
+    private final By locator = By.xpath("//a//b[text()='Google Cloud Platform Pricing Calculator']");
 
     public SearchResultsPage(WebDriver driver) {
         super(driver);

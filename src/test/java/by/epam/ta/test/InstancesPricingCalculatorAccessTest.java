@@ -13,7 +13,7 @@ import static org.hamcrest.Matchers.containsStringIgnoringCase;
 public class InstancesPricingCalculatorAccessTest extends CommonConditions {
     @Test(description = "Check if input data matches expected after estimation in correspondent fields")
     public void shouldCheckInputDataMatchesExpectedDataAfterEstimation() {
-        ComputeEngineInstance computeEngineInstance = InstanceCreator.withCredentialsFromProperty();
+        ComputeEngineInstance computeEngineInstance = InstanceCreator.withDataFromProperty();
         String searchTerm = SearchTermsUtils.getPricingCalculatorSearchTerm();
         EstimationResultComponent productsAndServicesPage = new MainPage(driver)
                 .openMainPage()

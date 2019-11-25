@@ -19,7 +19,7 @@ import static org.hamcrest.Matchers.containsString;
 public class InstancesPricingCalculatorAccuracyTests extends CommonConditions {
     @Test(description = "Check if final cost matches expected cost after estimation with particular input data")
     public void shouldCheckIfEstimationPriceIsCorrect() {
-        ComputeEngineInstance computeEngineInstance = InstanceCreator.withCredentialsFromProperty();
+        ComputeEngineInstance computeEngineInstance = InstanceCreator.withDataFromProperty();
         String searchTerm = SearchTermsUtils.getPricingCalculatorSearchTerm();
         EstimationResultComponent productsAndServicesPage = new MainPage(driver)
                 .openMainPage()
@@ -51,7 +51,7 @@ public class InstancesPricingCalculatorAccuracyTests extends CommonConditions {
 
     @Test(description = "Check if cost in email matches cost shown after estimation as Total Estimated Coast")
     public void shouldCheckIfCostInEmailIsCorrect() {
-        ComputeEngineInstance computeEngineInstance = InstanceCreator.withCredentialsFromProperty();
+        ComputeEngineInstance computeEngineInstance = InstanceCreator.withDataFromProperty();
         String searchTerm = SearchTermsUtils.getPricingCalculatorSearchTerm();
         EmailEstimationWindow emailEstimationWindow = new MainPage(driver)
                 .openMainPage()
@@ -90,7 +90,9 @@ public class InstancesPricingCalculatorAccuracyTests extends CommonConditions {
 
         driver.switchTo().window(windowHandles.get(0));
 
-        emailEstimationWindow.pasteEmailAddress(emailAddress).sendEmail();
+        emailEstimationWindow
+                .pasteEmailAddress(emailAddress)
+                .sendEmail();
 
         driver.switchTo().window(windowHandles.get(1));
 
