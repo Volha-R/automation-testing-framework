@@ -80,7 +80,7 @@ public class InstancesPricingCalculatorAccuracyTests extends CommonConditions {
 
         String calculatedComponentCost = estimationResultComponent.getEstimatedComponentCost();
 
-        ((JavascriptExecutor) driver).executeScript("window.open();");
+//        ((JavascriptExecutor) driver).executeScript("window.open();");
 
         List<String> windowHandles = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(windowHandles.get(1));
