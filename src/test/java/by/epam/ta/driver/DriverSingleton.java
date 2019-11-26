@@ -20,7 +20,7 @@ public class DriverSingleton {
                 case "firefox": {
                     WebDriverManager.firefoxdriver().setup();
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
-                    firefoxOptions.setHeadless(true);
+                    firefoxOptions.setHeadless(false);
                     firefoxOptions.addArguments("--start-maximized");
                     firefoxOptions.addArguments("--width=2560");
                     firefoxOptions.addArguments("--height=1440");
@@ -30,7 +30,7 @@ public class DriverSingleton {
                 default: {
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions chromeOptions = new ChromeOptions();
-                    chromeOptions.setHeadless(true);
+                    chromeOptions.setHeadless(false);
                     chromeOptions.addArguments("--start-maximized");
                     chromeOptions.addArguments("--window-size=2560,1440");
                     driver = new ChromeDriver(chromeOptions);

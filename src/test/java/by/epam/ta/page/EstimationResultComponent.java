@@ -58,9 +58,10 @@ public class EstimationResultComponent extends PricingCalculatorPage {
     }
 
     public EmailEstimationWindow chooseEmailEstimation() {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(
-                ExpectedConditions.elementToBeClickable(emailEstimateButton))
-                .click();
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.or(
+                ExpectedConditions.frameToBeAvailableAndSwitchToIt("myFrame"),
+                ExpectedConditions.elementToBeClickable(emailEstimateButton)));
+                emailEstimateButton.click();
         return new EmailEstimationWindow(driver);
     }
 }
