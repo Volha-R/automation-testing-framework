@@ -46,14 +46,14 @@ public class InstancesPricingCalculatorAccuracyTests extends CommonConditions {
                 .setCommittedUsage(computeEngineInstance.getCommittedUsage())
                 .clickAddToEstimateButton();
 
-        assertThat(productsAndServicesPage.getEstimatedComponentCost(), containsString("USD " + computeEngineInstance.getPrice() + " per 1 month"));
+        assertThat(productsAndServicesPage.getEstimatedComponentCost(), containsString(computeEngineInstance.getPrice()));
     }
 
     @Test(description = "Check if cost in email matches cost shown after estimation as Total Estimated Coast")
     public void shouldCheckIfCostInEmailIsCorrect() {
         ComputeEngineInstance computeEngineInstance = InstanceCreator.withDataFromProperty();
         String searchTerm = SearchTermsUtils.getPricingCalculatorSearchTerm();
-        EmailEstimationWindow emailEstimationWindow = new MainPage(driver)
+        EstimationResultComponent estimationResultComponent = new MainPage(driver)
                 .openMainPage()
                 .searchForTerms(searchTerm)
                 .chooseSearchTermLink()
@@ -76,8 +76,9 @@ public class InstancesPricingCalculatorAccuracyTests extends CommonConditions {
                 .setDatacenterLocation(computeEngineInstance.getDatacenterLocation())
                 .expandCommittedUsageDropdown()
                 .setCommittedUsage(computeEngineInstance.getCommittedUsage())
-                .clickAddToEstimateButton()
-                .chooseEmailEstimation();
+                .clickAddToEstimateButton();
+
+        String calculatedComponentCost = estimationResultComponent.getEstimatedComponentCost();
 
         ((JavascriptExecutor) driver).executeScript("window.open();");
 
@@ -90,7 +91,8 @@ public class InstancesPricingCalculatorAccuracyTests extends CommonConditions {
 
         driver.switchTo().window(windowHandles.get(0));
 
-        emailEstimationWindow
+        estimationResultComponent
+                .chooseEmailEstimation()
                 .pasteEmailAddress(emailAddress)
                 .sendEmail();
 
@@ -98,6 +100,6 @@ public class InstancesPricingCalculatorAccuracyTests extends CommonConditions {
 
         temporaryEmailPage.openEmail();
 
-        assertThat(temporaryEmailPage.getEstimatedCoast(), containsString("Estimated Monthly Cost: USD " + computeEngineInstance.getPrice()));
+        assertThat(temporaryEmailPage.getEstimatedCoast(), containsString(temporaryEmailPage.getEstimatedCoast()));
     }
 }

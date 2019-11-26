@@ -19,7 +19,7 @@ public class TemporaryEmailPage extends AbstractPage {
     @FindBy(id = "messagesList")
     private WebElement emailReceivedField;
 
-    @FindBy(xpath = "//h2[contains(text(), 'Estimated Monthly Cost')]")
+    @FindBy(xpath = "//h3[contains(text(), 'USD')]")
     private WebElement costField;
 
     public TemporaryEmailPage openPage() {
