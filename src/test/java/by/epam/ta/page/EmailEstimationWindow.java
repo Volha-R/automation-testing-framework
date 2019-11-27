@@ -1,5 +1,6 @@
 package by.epam.ta.page;
 
+import by.epam.ta.util.BrowserPageUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,6 +29,8 @@ public class EmailEstimationWindow extends EstimationResultComponent {
     }
 
     public void sendEmail() {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", sendEmailButton);
+//        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", sendEmailButton);
+        BrowserPageUtils.triggerClickEvent(sendEmailButton);
+
     }
 }

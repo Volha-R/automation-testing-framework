@@ -1,18 +1,15 @@
 package by.epam.ta.test;
 
 import by.epam.ta.model.ComputeEngineInstance;
-import by.epam.ta.page.EmailEstimationWindow;
 import by.epam.ta.page.EstimationResultComponent;
 import by.epam.ta.page.MainPage;
 import by.epam.ta.page.TemporaryEmailPage;
 import by.epam.ta.service.InstanceCreator;
 import by.epam.ta.util.SearchTermsUtils;
-import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import static by.epam.ta.util.BrowserPageUtils.openNewTab;
+import static by.epam.ta.util.BrowserPageUtils.switchToTab;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 
@@ -80,26 +77,24 @@ public class InstancesPricingCalculatorAccuracyTests extends CommonConditions {
 
         String calculatedComponentCost = estimationResultComponent.getEstimatedComponentCost();
 
-//        ((JavascriptExecutor) driver).executeScript("window.open();");
-
-        List<String> windowHandles = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(windowHandles.get(1));
+        openNewTab();
+        switchToTab(1);
 
         TemporaryEmailPage temporaryEmailPage = new TemporaryEmailPage(driver)
                 .openPage();
         String emailAddress = temporaryEmailPage.copyEmail();
 
-        driver.switchTo().window(windowHandles.get(0));
+        switchToTab(0);
 
         estimationResultComponent
                 .chooseEmailEstimation()
                 .pasteEmailAddress(emailAddress)
                 .sendEmail();
 
-        driver.switchTo().window(windowHandles.get(1));
+        switchToTab(1);
 
         temporaryEmailPage.openEmail();
 
-        assertThat(temporaryEmailPage.getEstimatedCoast(), containsString(temporaryEmailPage.getEstimatedCoast()));
+        assertThat(calculatedComponentCost, containsString(temporaryEmailPage.getEstimatedCoast()));
     }
 }
