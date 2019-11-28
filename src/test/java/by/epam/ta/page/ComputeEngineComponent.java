@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ComputeEngineComponent extends AbstractPage {
 
@@ -67,9 +65,7 @@ public class ComputeEngineComponent extends AbstractPage {
     }
 
     public ComputeEngineComponent setOperatingSystem(String operatingSystem) {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(
-                ExpectedConditions.elementToBeClickable(
-                        By.xpath(String.format(operatingSystemSoftwareParameter, operatingSystem))))
+        waitForElementToBeClickable(By.xpath(String.format(operatingSystemSoftwareParameter, operatingSystem)))
                 .click();
         return this;
     }
@@ -80,8 +76,7 @@ public class ComputeEngineComponent extends AbstractPage {
     }
 
     public ComputeEngineComponent setMachineClass(String machineClass) {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(
-                By.xpath(String.format(machineClassParameter, machineClass))))
+        waitForElementToBeClickable(By.xpath(String.format(machineClassParameter, machineClass)))
                 .click();
         return this;
     }
@@ -92,9 +87,7 @@ public class ComputeEngineComponent extends AbstractPage {
     }
 
     public ComputeEngineComponent setMachineType(String machineType) {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(
-                ExpectedConditions.elementToBeClickable(
-                        By.xpath(String.format(machineTypeParameter, machineType))))
+        waitForElementToBeClickable(By.xpath(String.format(machineTypeParameter, machineType)))
                 .click();
         return this;
     }
@@ -110,9 +103,7 @@ public class ComputeEngineComponent extends AbstractPage {
     }
 
     public ComputeEngineComponent setNumberOfGPUs(String numberOfGPUs) {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(
-                ExpectedConditions.elementToBeClickable(
-                        By.xpath(String.format(numberOfGPUsParameter, numberOfGPUs))))
+        waitForElementToBeClickable(By.xpath(String.format(numberOfGPUsParameter, numberOfGPUs)))
                 .click();
         return this;
     }
@@ -123,9 +114,7 @@ public class ComputeEngineComponent extends AbstractPage {
     }
 
     public ComputeEngineComponent setGPUType(String gpuType) {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(
-                ExpectedConditions.elementToBeClickable
-                        (By.xpath(String.format(gpuTypeParameter, gpuType))))
+        waitForElementToBeClickable(By.xpath(String.format(gpuTypeParameter, gpuType)))
                 .click();
         return this;
     }
@@ -136,9 +125,7 @@ public class ComputeEngineComponent extends AbstractPage {
     }
 
     public ComputeEngineComponent setLocalSSD(String localSSD) {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(
-                ExpectedConditions.elementToBeClickable(
-                        By.xpath(String.format(localSSDParameter, localSSD))))
+        waitForElementToBeClickable(By.xpath(String.format(localSSDParameter, localSSD)))
                 .click();
         return this;
     }
@@ -149,24 +136,19 @@ public class ComputeEngineComponent extends AbstractPage {
     }
 
     public ComputeEngineComponent setDatacenterLocation(String datacenterLocation) {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(
-                ExpectedConditions.elementToBeClickable(
-                        By.xpath(String.format(datacenterLocationParameter, datacenterLocation))))
+        waitForElementToBeClickable(By.xpath(String.format(datacenterLocationParameter, datacenterLocation)))
                 .click();
         return this;
     }
 
     public ComputeEngineComponent expandCommittedUsageDropdown() {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(
-                ExpectedConditions.elementToBeClickable(committedUsageOption))
+        waitForElementToBeClickable(committedUsageOption)
                 .click();
         return this;
     }
 
     public ComputeEngineComponent setCommittedUsage(String committedUsage) {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(
-                ExpectedConditions.elementToBeClickable(
-                        By.xpath(String.format(committedUsageParameter, committedUsage))))
+        waitForElementToBeClickable(By.xpath(String.format(committedUsageParameter, committedUsage)))
                 .click();
         return this;
     }

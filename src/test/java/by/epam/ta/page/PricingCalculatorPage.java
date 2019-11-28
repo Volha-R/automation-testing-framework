@@ -3,8 +3,6 @@ package by.epam.ta.page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PricingCalculatorPage extends AbstractPage {
 
@@ -16,8 +14,7 @@ public class PricingCalculatorPage extends AbstractPage {
     }
 
     public ComputeEngineComponent chooseComputeEngineOption() {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(
-                ExpectedConditions.frameToBeAvailableAndSwitchToIt("myFrame"));
+        waitForFrameAndSwitchToIt("myFrame");
         computeEngineOptionButton.click();
         return new ComputeEngineComponent(driver);
     }

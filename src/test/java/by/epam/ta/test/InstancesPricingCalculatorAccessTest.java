@@ -22,7 +22,7 @@ public class InstancesPricingCalculatorAccessTest extends CommonConditions {
                 .chooseComputeEngineOption()
                 .setNumberOfInstances(computeEngineInstance.getNumberOfInstances())
                 .expandOperatingSystemDropdown()
-                .setOperatingSystem(computeEngineInstance.getOperatingSystem())
+                .setOperatingSystem(computeEngineInstance.getOperatingSystemOrSoftware())
                 .expandMachineClassDropdown()
                 .setMachineClass(computeEngineInstance.getMachineClass())
                 .expandMachineTypeDropdown()

@@ -3,8 +3,6 @@ package by.epam.ta.page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TemporaryEmailPage extends AbstractPage {
     private static final String EMAIL_PAGE_URL = "https://10minutemail.com";
@@ -32,13 +30,13 @@ public class TemporaryEmailPage extends AbstractPage {
     }
 
     public TemporaryEmailPage openEmail() {
-        new WebDriverWait(driver, 60).until(ExpectedConditions.elementToBeClickable(emailReceivedField))
+        waitForElementToBeClickable(emailReceivedField, 60)
                 .click();
         return this;
     }
 
     public String getEstimatedCoast() {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(costField));
+        waitForElementToBeVisible(costField);
         return costField.getText();
     }
 }
