@@ -4,8 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static by.epam.ta.util.BrowserPageUtils.triggerClickEvent;
-
 public class EmailEstimationWindow extends EstimationResultComponent {
 
     public EmailEstimationWindow(WebDriver driver) {
