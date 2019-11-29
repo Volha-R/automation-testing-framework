@@ -1,6 +1,7 @@
 package by.epam.ta.page;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -44,5 +45,9 @@ public abstract class AbstractPage {
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.or(
                 ExpectedConditions.frameToBeAvailableAndSwitchToIt(frameName),
                 ExpectedConditions.elementToBeClickable(webElement)));
+    }
+
+    protected void triggerClickEvent(WebElement element) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
     }
 }
