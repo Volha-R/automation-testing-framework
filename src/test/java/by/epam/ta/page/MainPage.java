@@ -3,6 +3,7 @@ package by.epam.ta.page;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class MainPage extends AbstractPage {
@@ -24,9 +25,14 @@ public class MainPage extends AbstractPage {
     }
 
     public SearchResultsPage searchForTerms(String searchTerm) {
-        searchFieldButton.click();
-        searchField.sendKeys(searchTerm);
-        searchField.sendKeys(Keys.ENTER);
+        new Actions(driver)
+                .moveToElement(searchFieldButton)
+                .click()
+                .moveToElement(searchField)
+                .sendKeys(searchTerm)
+                .sendKeys(Keys.ENTER)
+                .build()
+                .perform();
         return new SearchResultsPage(driver);
     }
 }

@@ -2,7 +2,8 @@ package by.epam.ta.driver;
 
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
@@ -16,25 +17,30 @@ public class DriverSingleton {
     }
 
     public static WebDriver getDriver() {
-        DesiredCapabilities capabilities = null;
         if (null == driver) {
+            URL url;
+            try {
+                url = new URL("http://192.168.8.3:4444/wd/hub");
+            } catch (MalformedURLException e) {
+                throw new IllegalArgumentException();
+            }
+
             switch (System.getProperty("browser")) {
                 case "firefox": {
-                    capabilities = DesiredCapabilities.firefox();
+                    FirefoxOptions options = new FirefoxOptions();
+                    driver = new RemoteWebDriver(url, options);
                     break;
                 }
                 default: {
-                    capabilities = DesiredCapabilities.chrome();
+                    ChromeOptions options = new ChromeOptions();
+                    options.setCapability("platform", Platform.WINDOWS);
+                    options.setCapability("version", "74");
+                    driver = new RemoteWebDriver(url, options);
                 }
             }
         }
 
-        try {
-            capabilities.setPlatform(Platform.WINDOWS);
-            return new RemoteWebDriver(new URL("http://192.168.8.3:4444/wd/hub"), capabilities);
-        } catch (MalformedURLException e) {
-            throw new RuntimeException();
-        }
+        return driver;
     }
 
     public static void closeDriver() {
@@ -42,15 +48,3 @@ public class DriverSingleton {
         driver = null;
     }
 }
-
-/*
- java -jar selenium-server-standalone-3.141.59.jar -role hub
-*/
-
-/*
- java -Dwebdriver.chrome.driver=C:\Users\User\Downloads\chromedriver.exe -jar C:\Users\User\Downloads\selenium-server-standalone-3.141.59.jar  -role node -hub http://192.168.8.3:4444/grid/register -browser "browserName=chrome,platform=WINDOWS" -port 5557
- */
-
-/*
- java -Dwebdriver.gecko.driver=C:\Users\User\Downloads\geckodriver.exe -jar C:\Users\User\Downloads\selenium-server-standalone-3.141.59.jar -role node -hub http://192.168.8.3:4444/grid/register -browser "browserName=firefox,platform=WINDOWS" -port 5558
- */
